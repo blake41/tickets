@@ -2,17 +2,7 @@ require 'date'
 
 class Show
 
-  def name
-    @name
-  end
-
-  def date
-    @date
-  end
-
-  def ticket
-    @ticket
-  end
+  attr_accessor(:date, :name)
 
   def initialize(name)
     @name = name
@@ -21,10 +11,6 @@ class Show
 
   def consult_ticketing_registry
     Date.today + rand(50)
-  end
-
-  def set_ticket(ticket)
-    @ticket = ticket
   end
 
 end

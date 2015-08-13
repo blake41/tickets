@@ -1,6 +1,10 @@
 a person should be able to purchase a ticket to a show
 they should be able to attend the show
 they should be able to attend multiple shows
+we should keep track of how many unused tickets a person has
+we should keep track of how many used tickets a person has
+we should be able to use a ticket (go to a show)
+
 
 tickets will always be for todays date
 where do we pass in the date of the concert

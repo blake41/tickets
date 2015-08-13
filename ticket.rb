@@ -1,29 +1,60 @@
 class Ticket
 
-  attr_reader(:used)
+  def used
+    @used
+  end
 
-  def initialize(show)
-    @show = Show.new(show)
+  def person
+    @person
+  end
+
+  def initialize(show_name)
+    @show = Show.new(show_name)
+    @show.set_ticket(self)
     @used = false
+  end
+
+  def set_person(person)
+    @person = person
   end
 
   def unused?
     !used
   end
 
+  def name
+    @show.name
+  end
+
   def use_ticket
-    if valid?
+    # we must check if the ticket has already been used
+    if unused? && valid?
       @used = true
-      return true 
+      return true
     end
     false
   end
 
   def valid?
-    @show.date == todays_date
+    @show.date == some_date
   end
 
-  def todays_date
-    $god_mode ? $todays_date : Date.today
+  def some_date
+    if $god_mode
+      return $todays_date
+    else
+      Date.today
+    end
   end
+
+  def date
+    @show.date
+  end
+
+  def show
+    @show
+  end
+
+
+
 end

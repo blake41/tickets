@@ -1,15 +1,21 @@
 require_relative 'ticket'
 class Person
 
-  attr_accessor(:tickets, :name)
+  attr_reader(:tickets)
 
   def initialize(name)
     @name = name
     @tickets = []
   end
 
-  def buy_ticket(show)
-    @tickets << Ticket.new(show)
+  def buy_ticket(show_name)
+    ticket = Ticket.new(show_name)
+    tickets << ticket
+    ticket.set_person(self)
+  end
+
+  def used_tickets
+    tickets.keep_if {|ticket| ticket.used}
   end
 
   def go_to_show(show_name)
@@ -18,11 +24,13 @@ class Person
   end
 
   def unused_tickets
-    @tickets.keep_if {|t| t.unused?}
+    tickets - used_tickets
   end
 
-  def find_ticket(show_name)
-    @tickets.find {|ticket| ticket.name == show_name}
+  def find_ticket(name)
+    @tickets.find do |ticket|
+      ticket.name == name
+    end
   end
 
 end

@@ -6,6 +6,7 @@ require_relative "show"
 require_relative "ticket"
 
 person = Person.new("blake")
-person.buy_ticket("Notorious BIG")
-person.buy_ticket("Katy Perry")
+person.buy_ticket("2Pac")
+ticket = person.find_ticket("2Pac")
+show = ticket.show
 binding.pry
