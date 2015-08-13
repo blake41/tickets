@@ -1,0 +1,11 @@
+a person should be able to purchase a ticket to a show
+they should be able to attend the show
+they should be able to attend multiple shows
+
+tickets will always be for todays date
+where do we pass in the date of the concert
+
+if we want to simulate tickets being used and going to the concert
+how can we change todays date?
+
+what if we wanted tickets to work with different types of objects
